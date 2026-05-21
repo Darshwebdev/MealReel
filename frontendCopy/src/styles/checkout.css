@@ -1,0 +1,111 @@
+/* styles/checkout.css */
+@import '../styles/variables.css';
+
+.checkout-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-card {
+  background: #0f0f0f;
+  border-radius: 20px;
+  padding: 30px;
+  width: 380px;
+  box-shadow: 0 0 40px rgba(255,140,0,0.15);
+}
+
+.checkout-card h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Form grid layout */
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input and textarea styling */
+.form-grid input,
+.form-grid textarea {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-grid input:focus,
+.form-grid textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255,140,0,0.1);
+}
+
+/* Error states */
+.error {
+  border-color: #ff4444 !important;
+  background: rgba(255,68,68,0.1);
+  box-shadow: 0 0 0 3px rgba(255,68,68,0.2);
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  background: rgba(255,68,68,0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border-left: 3px solid #ff4444;
+}
+
+/* Save button */
+.save-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-color));
+  color: black;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ff9500, var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255,140,0,0.4);
+}
+
+.save-btn:disabled {
+  background: linear-gradient(135deg, #444, #333);
+  color: #888;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .checkout-card {
+    width: 95%;
+    padding: 20px;
+  }
+}

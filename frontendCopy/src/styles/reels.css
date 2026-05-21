@@ -1,0 +1,210 @@
+@import './theme.css';
+@import '../styles/variables.css';
+
+.reels-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.reel {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  scroll-snap-align: start;
+  background-color: black;
+}
+
+.reel-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.reel-overlay {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom:20px ;
+}
+
+/* Description — 2 line max */
+.reel-desc {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Button */
+.reel-btn {
+  background: var(--primary-color);
+  padding: 14px;
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+/* Right-side actions */
+.reel-actions {
+  position: absolute;
+  right: 12px;
+  bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 5;
+}
+
+.reel-action-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  background: color-mix(in srgb, #7c7c7c 35%, transparent);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+}
+
+.reel-action-btn svg {
+  width: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0; 
+  height: 30px;
+  stroke: white;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.reel-action-btn span {
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-item {
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  /* stroke: currentColor; */
+  fill: none;
+  /* stroke-width: 1.8; */
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #e69564;
+}
+
+
+
+/*Added for the main Logo of the Meal reel , update in the home.jsx*/
+/* Bottom nav base (if not already) */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #222;
+  z-index: 100;
+}
+
+/* Normal nav items */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #aaa;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* ========================= */
+/* CENTER LOGO – MEALREEL */
+/* ========================= */
+
+.logo-item {
+  position: relative;
+  top: -18px;
+}
+
+.logo-circle {
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(145deg, #f2995a, #ffb37d);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(242, 153, 90, 0.5);
+  transition: all 0.3s ease;
+}
+
+.logo-circle svg {
+  width: 26px;
+  height: 26px;
+  stroke: #111;
+}
+
+/* Hover / Active effect */
+.logo-item:hover .logo-circle {
+  transform: scale(1.08);
+  box-shadow: 0 14px 35px rgba(242, 153, 90, 0.7);
+}
+
+/* Logo text */
+.logo-text {
+  margin-top: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f2995a;
+}

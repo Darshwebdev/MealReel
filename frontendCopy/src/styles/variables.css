@@ -1,0 +1,20 @@
+/* Theme Variables: auto light/dark */
+
+:root {
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --text-color: #222222;
+  --primary-color: #ff6b00;
+  --border-color: #dddddd;
+}
+
+/* Dark Mode based on system */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #111111;
+    --card-bg: #1a1a1a;
+    --text-color: #eaeaea;
+    --primary-color: #ff884d;
+    --border-color: #333333;
+  }
+}
