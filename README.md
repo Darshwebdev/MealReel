@@ -138,15 +138,15 @@ MealReel/
 │   ├── pages/
 │   ├── routes/
 │   ├── assets/
-|   └── styles/
+│   └── styles/
 │
 ├── backend/
 │   ├── controllers/
 │   ├── db/
 │   ├── routes/
 │   ├── middlewares/
-|   ├── services/
-|   ├── models/
+│   ├── services/
+│   ├── models/
 │   └── config/
 │
 └── README.md
@@ -214,7 +214,7 @@ npm run dev
 # 📸 Screenshots
 
 <img width="2850" height="1372" alt="image" src="https://github.com/user-attachments/assets/28b2e243-dff9-4610-98bd-20d07fe7bc92" />
-Homepage
+
 <img width="454" height="940" alt="image" src="https://github.com/user-attachments/assets/ce815bd5-9ea6-4ea0-a955-93bd90c915a4" />
 User Register/login page
 <img width="434" height="946" alt="image" src="https://github.com/user-attachments/assets/b39c8267-30ec-4835-a0fc-ad0a3048eaba" />
@@ -256,9 +256,9 @@ will add soon.
 
 MERN Stack Developer passionate about building interactive and scalable full-stack web applications.
 
-* Portfolio: Add your portfolio link
-* LinkedIn: Add your LinkedIn link
-* GitHub: Add your GitHub link
+* Portfolio: will add soon
+* LinkedIn: [linkdin](https://www.linkedin.com/in/darsh-desai-9b894028a?utm_source=share_via&utm_content=profile&utm_medium=member_android)
+* GitHub: [github](https://github.com/darshwebdev)
 
 ---
 
