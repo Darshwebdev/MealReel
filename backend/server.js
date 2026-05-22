@@ -1,10 +1,10 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 
-// console.log('Loaded MONGODB_URI:', process.env.MONGODB_URI);
+// console.log('Loaded MONGODB_URI1:', process.env.MONGODB_URI1);
 
-const app = require('./src/app');
-const connectDB = require('./src/db/db');
+const app = require("./src/app");
+const connectDB = require("./src/db/db");
 
 connectDB();
 
