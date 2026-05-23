@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 function connectDB() {
-<<<<<<< HEAD
+// <<<<<<< HEAD
     mongoose.connect(process.env.MONGODB_URI1)
         .then(() => {
             // console.log("MongoDB connected");
@@ -9,7 +9,7 @@ function connectDB() {
         .catch((err) => {
             // console.log("MongoDB connection error:", err);
         })
-=======
+// =======
   mongoose
     .connect(process.env.MONGODB_URI1)
     .then(() => {
@@ -18,7 +18,7 @@ function connectDB() {
     .catch((err) => {
       // console.log("MongoDB connection error:", err);
     });
->>>>>>> 6c2d4fc (Added razorpay dependency)
+// >>>>>>> 6c2d4fc (Added razorpay dependency)
 }
 
 module.exports = connectDB;
