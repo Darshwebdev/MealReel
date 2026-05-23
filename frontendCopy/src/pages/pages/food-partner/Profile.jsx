@@ -6,17 +6,20 @@ import axios from "axios";
 
 const Profile = () => {
   const [activeVideo, setActiveVideo] = useState(null);
-  const {id} = useParams();
+  const { id } = useParams();
   const [profile, setprofile] = useState(null);
-  const [videos, setvideos] = useState([])
+  const [videos, setvideos] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/food-partner/${id}`, { withCredentials: true })
-    .then(response=>{
-        setprofile(response.data.foodPartner)
-        setvideos(response.data.foodPartner.foodItems)
-    })
-  }, [id])
-  
+    axios
+      .get(`https://mealreel.onrender.com/api/food-partner/${id}`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        setprofile(response.data.foodPartner);
+        setvideos(response.data.foodPartner.foodItems);
+      });
+  }, [id]);
+
   // dummy videos
 
   return (
@@ -53,9 +56,12 @@ const Profile = () => {
               className="video-tile"
               onClick={() => setActiveVideo(index)}
             >
-              <video 
-              className="video-tile"
-              src={_.video} muted autoPlay></video>
+              <video
+                className="video-tile"
+                src={_.video}
+                muted
+                autoPlay
+              ></video>
             </div>
           ))}
         </div>

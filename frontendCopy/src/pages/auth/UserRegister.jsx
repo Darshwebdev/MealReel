@@ -22,15 +22,12 @@
 //     }
 //   }, [timer, step]);
 
-
-
- 
 //   // 🧑‍💻 Final Register
 //   const registerUser = async (e) => {
 //     e.preventDefault();
 
 //     const response = await axios.post(
-//       "http://localhost:3000/api/auth/user/register",
+//       "https://mealreel.onrender.com/api/auth/user/register",
 //       {
 //         fullName: firstName + " " + lastName,
 //         email,
@@ -67,11 +64,8 @@
 //               />
 //             </div>
 
-            
 //           </>
 //         )}
-
-       
 
 //         {/* STEP 3 – DETAILS */}
 //         {step === 3 && (
@@ -118,10 +112,10 @@
 // };
 
 // export default UserRegister;
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "../../styles/style.css";
-import axios from 'axios';
+import axios from "axios";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -135,13 +129,13 @@ const UserRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/user/register",
+        "https://mealreel.onrender.com/api/auth/user/register",
         {
           fullName,
           email,
-          password
+          password,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       // console.log(response.data);
@@ -150,7 +144,6 @@ const UserRegister = () => {
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       navigate("/");
-
     } catch (error) {
       console.error(error.response?.data?.message || "Registration failed");
       alert(error.response?.data?.message || "Registration failed");
@@ -160,16 +153,18 @@ const UserRegister = () => {
   return (
     <div className="page-container">
       <div className="form-box premium-card">
-
         <div className="top-icon">Register</div>
 
         <div className="toggle-tabs">
-          <Link to="/user/register" className="tab active">User Register</Link>
-          <Link to="/food-partner/register" className="tab">FoodPartner Register</Link>
+          <Link to="/user/register" className="tab active">
+            User Register
+          </Link>
+          <Link to="/food-partner/register" className="tab">
+            FoodPartner Register
+          </Link>
         </div>
 
         <form onSubmit={registerUser}>
-
           {/* Full Name */}
           <div className="input-group">
             <span className="input-icon">👤</span>
@@ -209,13 +204,11 @@ const UserRegister = () => {
           <button type="submit" className="register-btn">
             Create User Account
           </button>
-
         </form>
 
         <p className="text-link">
           Already have an account? <Link to="/user/login">Login</Link>
         </p>
-
       </div>
     </div>
   );

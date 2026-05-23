@@ -1,11 +1,11 @@
-import React from 'react';
-import "../../styles/style.css";  // ✅ Changed from auth-shared.css
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "../../styles/style.css"; // ✅ Changed from auth-shared.css
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FoodPartnerRegister = () => {
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -16,36 +16,44 @@ const FoodPartnerRegister = () => {
     const password = e.target.password.value;
     const address = e.target.address.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/food-partner/register", {
-      name,
-      contactName,
-      phone,
-      email,
-      password,
-      address
-    }, { 
-      withCredentials: true 
-    });
+    const response = await axios.post(
+      "https://mealreel.onrender.com/api/auth/food-partner/register",
+      {
+        name,
+        contactName,
+        phone,
+        email,
+        password,
+        address,
+      },
+      {
+        withCredentials: true,
+      },
+    );
 
     // console.log(response.data);
     navigate("/create-food");
   };
 
   return (
-    <div className="page-container">  {/* ✅ Changed from auth-page-wrapper */}
-      <div className="form-box premium-card">  {/* ✅ Changed from auth-card */}
-        
+    <div className="page-container">
+      {" "}
+      {/* ✅ Changed from auth-page-wrapper */}
+      <div className="form-box premium-card">
+        {" "}
+        {/* ✅ Changed from auth-card */}
         {/* Top icon */}
         <div className="top-icon">Register</div>
-
         {/* Toggle tabs */}
         <div className="toggle-tabs">
-          <a href="/user/register" className="tab">User Register</a>
-          <a href="/food-partner/register" className="tab active">FoodPartner Register</a>
+          <a href="/user/register" className="tab">
+            User Register
+          </a>
+          <a href="/food-partner/register" className="tab active">
+            FoodPartner Register
+          </a>
         </div>
-
         <p className="sub-text">Grow your business with our platform.</p>
-
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <span className="input-icon">🏷️</span>
@@ -57,7 +65,9 @@ const FoodPartnerRegister = () => {
             />
           </div>
 
-          <div className="row-inputs">  {/* ✅ Row for contactName + phone */}
+          <div className="row-inputs">
+            {" "}
+            {/* ✅ Row for contactName + phone */}
             <div className="input-group">
               <span className="input-icon">👤</span>
               <input
@@ -67,15 +77,9 @@ const FoodPartnerRegister = () => {
                 required
               />
             </div>
-
             <div className="input-group">
               <span className="input-icon">📞</span>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                required
-              />
+              <input type="tel" name="phone" placeholder="Phone" required />
             </div>
           </div>
 
@@ -117,7 +121,6 @@ const FoodPartnerRegister = () => {
             Create Partner Account
           </button>
         </form>
-
         <p className="text-link">
           Already a partner? <a href="/food-partner/login">Sign in</a>
         </p>

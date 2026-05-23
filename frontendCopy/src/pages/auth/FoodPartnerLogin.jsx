@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "../../styles/style.css";
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FoodPartnerLogin = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   // Store food partner data
@@ -19,14 +19,14 @@ const FoodPartnerLogin = () => {
     const password = e.target.password.value;
 
     // Reset previous errors
-    setError('');
+    setError("");
     setIsLoading(true);
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/food-partner/login",
+        "https://mealreel.onrender.com/api/auth/food-partner/login",
         { email, password },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       // Store in localStorage and navigate
@@ -36,13 +36,13 @@ const FoodPartnerLogin = () => {
     } catch (err) {
       // Handle different error scenarios (same as UserLogin)
       if (err.response?.status === 400) {
-        setError('Invalid business email or password. Please try again.');
+        setError("Invalid business email or password. Please try again.");
       } else if (err.response?.status === 401) {
-        setError('Authentication failed. Check your credentials.');
+        setError("Authentication failed. Check your credentials.");
       } else if (!err.response) {
-        setError('Network error. Please check your connection.');
+        setError("Network error. Please check your connection.");
       } else {
-        setError('Something went wrong. Please try again.');
+        setError("Something went wrong. Please try again.");
       }
     } finally {
       setIsLoading(false);
@@ -55,22 +55,29 @@ const FoodPartnerLogin = () => {
         <div className="top-icon">Login</div>
 
         <div className="toggle-tabs">
-          <a href="/user/login" className="tab">User login</a>
-          <a href="/food-partner/login" className="tab active">Food Partner Login</a>
+          <a href="/user/login" className="tab">
+            User login
+          </a>
+          <a href="/food-partner/login" className="tab active">
+            Food Partner Login
+          </a>
         </div>
 
         <p className="sub-text">Manage your business and orders easily.</p>
 
         {error && (
-          <div className="error-message" style={{
-            backgroundColor: '#fee',
-            color: '#c33',
-            padding: '12px',
-            borderRadius: '8px',
-            border: '1px solid #fcc',
-            marginBottom: '16px',
-            fontSize: '14px'
-          }}>
+          <div
+            className="error-message"
+            style={{
+              backgroundColor: "#fee",
+              color: "#c33",
+              padding: "12px",
+              borderRadius: "8px",
+              border: "1px solid #fcc",
+              marginBottom: "16px",
+              fontSize: "14px",
+            }}
+          >
             ⚠️ {error}
           </div>
         )}
@@ -78,7 +85,7 @@ const FoodPartnerLogin = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <span className="input-icon">✉️</span>
-            <input 
+            <input
               type="email"
               name="email"
               placeholder="Business Email"
@@ -98,13 +105,13 @@ const FoodPartnerLogin = () => {
             />
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="register-btn"
             disabled={isLoading}
             style={{ opacity: isLoading ? 0.7 : 1 }}
           >
-            {isLoading ? 'Logging in...' : 'Login'}
+            {isLoading ? "Logging in..." : "Login"}
           </button>
         </form>
 

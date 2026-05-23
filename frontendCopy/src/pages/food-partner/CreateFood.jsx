@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
 const CreateFood = () => {
-
   const fileRef = useRef(null);
   const navigate = useNavigate();
 
@@ -40,7 +39,6 @@ const CreateFood = () => {
   };
 
   const onSubmit = async (e) => {
-
     e.preventDefault();
 
     if (!partnerId) {
@@ -58,23 +56,18 @@ const CreateFood = () => {
     formData.append("foodPartner", partnerId);
 
     try {
-
       const response = await axios.post(
-        "http://localhost:3000/api/food",
+        "https://mealreel.onrender.com/api/food",
         formData,
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       // console.log(response.data);
 
       navigate("/MealReel");
-
     } catch (error) {
-
       console.error("Upload failed:", error.response?.data || error.message);
-
     }
-
   };
 
   return (
@@ -82,7 +75,6 @@ const CreateFood = () => {
       <form onSubmit={onSubmit}>
         <div className="page-container">
           <div className="form-box">
-
             <h2>Create Food</h2>
             <p className="form-subtitle">
               Upload a short video, give it a name, and add a description.
@@ -91,7 +83,9 @@ const CreateFood = () => {
             {/* Upload */}
 
             <div
-              className={`upload-box enhanced ${dragActive ? "drag-active" : ""}`}
+              className={`upload-box enhanced ${
+                dragActive ? "drag-active" : ""
+              }`}
               onClick={() => fileRef.current.click()}
               onDragOver={(e) => {
                 e.preventDefault();
@@ -100,20 +94,15 @@ const CreateFood = () => {
               onDragLeave={() => setDragActive(false)}
               onDrop={handleDrop}
             >
-
               {!videoPreview ? (
-
                 <div className="upload-inner">
                   <p className="upload-text">Tap to upload or drag & drop</p>
                   <span className="upload-hint">
                     MP4, WebM, MOV • up to 100MB
                   </span>
                 </div>
-
               ) : (
-
                 <div className="video-preview-wrapper">
-
                   <video
                     src={videoPreview}
                     controls
@@ -127,9 +116,7 @@ const CreateFood = () => {
                   >
                     Remove
                   </button>
-
                 </div>
-
               )}
 
               <input
@@ -139,7 +126,6 @@ const CreateFood = () => {
                 hidden
                 onChange={(e) => handleFile(e.target.files[0])}
               />
-
             </div>
 
             {/* NAME */}
@@ -191,7 +177,6 @@ const CreateFood = () => {
             >
               Save Food
             </button>
-
           </div>
         </div>
       </form>
@@ -199,9 +184,7 @@ const CreateFood = () => {
       {/* BOTTOM NAV */}
 
       <nav className="bottom-nav">
-
         <Link to="/MealReel" className="nav-item logo-item">
-
           <div className="logo-circle">
             <svg
               viewBox="0 0 24 24"
@@ -216,9 +199,7 @@ const CreateFood = () => {
           </div>
 
           <span className="logo-text">MealReel</span>
-
         </Link>
-
       </nav>
     </>
   );
