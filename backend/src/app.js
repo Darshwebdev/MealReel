@@ -10,9 +10,13 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+        "http://localhost:5173", // local dev
+        "https://meal-reel-git-main-darshwebdevs-projects.vercel.app" // production frontend
+    ],
     credentials: true
 }));
+
 app.use(cookieParser());
 app.use(express.json());
 
