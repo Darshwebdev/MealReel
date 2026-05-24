@@ -11,7 +11,7 @@ import CreateFood from '../pages/food-partner/CreateFood';
 import Profile from '../pages/food-partner/Profile';
 import MealReelHome from '../pages/general/MealReelHome';
 import PaymentPage from '../components/PaymentPage'
-import CheckoutAddress from '../pages/checkoutaddress';
+import CheckoutAddress from '../pages/CheckoutAddress';
 const AppRoutes = () => {
     return (
         <Router>
